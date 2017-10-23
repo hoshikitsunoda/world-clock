@@ -40,3 +40,5 @@ const doWerk = () => {
       })
     })
 }
+
+setInterval(doWerk, 16)
