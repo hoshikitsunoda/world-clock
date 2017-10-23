@@ -3,8 +3,6 @@ const url = 'mongodb://localhost/worldclock'
 const express = require('express')
 const app = express()
 
-app.use(express.static('./public'))
-
 MongoClient.connect(url, (err, db) => {
   if (err) {
     console.error(err)
@@ -12,7 +10,9 @@ MongoClient.connect(url, (err, db) => {
   }
   const timezones = db.collection('timezones')
 
-  app.get('/timezones', (req,res) => {
+  app.use(express.static('./public'))
+
+  app.get('/timezones', (req, res) => {
     timezones
       .find({})
       .toArray()

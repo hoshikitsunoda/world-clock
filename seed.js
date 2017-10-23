@@ -8,16 +8,15 @@ MongoClient.connect(url, (err, db) => {
   }
   const timezones = db.collection('timezones')
 
-    timezones
-       .insertMany([
-         { timezone: 'Asia/Tokyo' },
-         { timezone: 'Asia/Dhaka' },
-         { timezone: 'Asia/Dubai' },
-         { timezone: 'Europe/Moscow' },
-         { timezone: 'Europe/Rome' },
-         { timezone: 'Europe/London' },
-         { timezone: 'America/Sao_Paulo' },
-         { timezone: 'America/New_York' },
-         { timezone: 'America/Los_Angeles' },
-      ])
+  timezones.insertMany([
+    { zone: 'Asia/Tokyo' },
+    { zone: 'Asia/Dhaka' },
+    { zone: 'Asia/Dubai' },
+    { zone: 'Europe/Moscow' },
+    { zone: 'Europe/Rome' },
+    { zone: 'Europe/London' },
+    { zone: 'America/Sao_Paulo' },
+    { zone: 'America/New_York' },
+    { zone: 'America/Los_Angeles' }
+  ])
 })

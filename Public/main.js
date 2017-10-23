@@ -1,23 +1,42 @@
-const timeZones = (zones) => zones.map(zone => (
-  {
-    zone: zone.split('/').replace('_', ' '),
-    time: moment().tz(zone).format('h:mm:ss a')
-  }
-))
+const $time = document.querySelector('times')
 
-const $time = document.createElement('div')
-const $value = document.createElement('div')
+const times = zones =>
+  zones.map(({ zone }) => ({
+    zone: zone.split('/')[1].replace('_', ' '),
+    time: moment()
+      .tz(zone)
+      .format('h:mm:ss a')
+  }))
 
-$time.setAttribute('class', 'time')
+const render = zone => {
+  const $zone = document.createElement('div')
+  const $name = document.createElement('div')
+  const $time = document.createElement('div')
 
-const setTime = (time) => {
-  $value.setAttribute('class', 'value')
-  $value.textContent = `
-    ${time.zone}
-    ${time.time}
-  `
-  return $value
+  $zone.classList.add('time')
+
+  $name.classList.add('zone')
+  $name.textContent = zone.zone
+
+  $time.classList.add('time')
+  $time.textContent = zone.time
+
+  $zone.append($name, $time)
+  return $zone
 }
 
-$time.appendChild(setTime($value))
-document.body.appendChild($time)
+const timeZones = () => {
+  return fetch('/timezones').then(res => res.json())
+}
+
+const doWerk = () => {
+  timeZones()
+    .then(data => times(data))
+    .then(data => data.map(render))
+    .then(data => {
+      document.querySelector('#times').innerHTML = ''
+      data.forEach(element => {
+        document.querySelector('#times').appendChild(element)
+      })
+    })
+}
