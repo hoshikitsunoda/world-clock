@@ -35,15 +35,18 @@ const timeZones = () => {
 }
 
 const doWerk = () => {
-  timeZones()
-    .then(data => times(data))
-    .then(data => data.map(render))
-    .then(data => {
-      document.querySelector('#times').innerHTML = ''
-      data.forEach(element => {
-        document.querySelector('#times').appendChild(element)
+  const getTime = timeZones()
+  setInterval(() => {
+    getTime
+      .then(times)
+      .then(data => data.map(render))
+      .then(data => {
+        document.querySelector('#times').innerHTML = ''
+        data.forEach(element => {
+          document.querySelector('#times').appendChild(element)
+        })
       })
-    })
+  }, 16)
 }
 
-setInterval(doWerk, 16)
+doWerk()
