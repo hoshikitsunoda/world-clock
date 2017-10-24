@@ -14,4 +14,4 @@ $ node index.js
 * Express
 * Node.js
 
-![screen shot 2017-10-24 at 11 35 42 am](https://user-images.githubusercontent.com/27325328/31961461-a887caea-b8af-11e7-8b5f-7ef72a479f8d.png)
+![world-clock](https://user-images.githubusercontent.com/27325328/31964549-31239574-b8b9-11e7-889e-af0aa18d7224.gif)
