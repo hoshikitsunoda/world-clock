@@ -1,0 +1,70 @@
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Nova Flat', cursive;
+  font-size: 10px;
+  margin: 0;
+}
+
+body {
+  background: radial-gradient(ellipse at center, #819499 0%, #0a2e38 70%);
+  margin: 0;
+  box-shadow:
+    inset 3rem 3rem 5rem black,
+    inset -3rem -3rem 5rem black,
+    inset 6rem 6rem 10rem grey,
+    inset -6rem -6rem 10rem grey,
+    inset 9rem 9rem 150rem grey,
+    inset -9rem -9rem 150rem grey;
+}
+
+.times {
+  float: left;
+  position: relative;
+  width: calc(100vw / 3 - 0.2rem);
+  height: calc(100vh / 3 - 0.2rem);
+  opacity: 0.6;
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 1rem 1rem 3rem white,
+    inset -1rem -1rem 3rem white;
+  font-size: 5rem;
+}
+
+.zone {
+  opacity: 0.8;
+  color: red;
+  position: absolute;
+  text-align: center;
+  height: calc(100% / 3);
+  width: calc(100% / 2);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow:
+    0 0 10px white,
+    0 0 20px white;
+  font-size: 2rem;
+}
+
+.time {
+  color: white;
+  position: relative;
+  height: calc(100% / 3);
+  text-shadow:
+    0 0 0.2rem grey,
+    0.1rem 0.1rem 0.5rem grey,
+    0.2rem 0.2rem 1rem black,
+    -0.2rem 0.2rem 1rem black;
+  text-align: center;
+  padding-top: 20vh;
+  font-size: 2rem;
+}
+
+@media (min-width: 1000px) {
+  .time,
+  .zone {
+    font-size: 4rem;
+  }
+}
