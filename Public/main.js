@@ -1,8 +1,12 @@
-const $time = document.querySelector('times')
+const $container = document.createElement('div')
+$container.setAttribute('id', 'times')
+document.body.appendChild($container)
 
 const times = zones =>
   zones.map(({ zone }) => ({
-    zone: zone.split('/')[1].replace('_', ' '),
+    zone: zone
+      .split('/')[1]
+      .replace('_', ' '),
     time: moment()
       .tz(zone)
       .format('h:mm:ss a')
@@ -13,7 +17,7 @@ const render = zone => {
   const $name = document.createElement('div')
   const $time = document.createElement('div')
 
-  $zone.classList.add('time')
+  $zone.classList.add('times')
 
   $name.classList.add('zone')
   $name.textContent = zone.zone
@@ -26,7 +30,8 @@ const render = zone => {
 }
 
 const timeZones = () => {
-  return fetch('/timezones').then(res => res.json())
+  return fetch('/timezones')
+    .then(res => res.json())
 }
 
 const doWerk = () => {
