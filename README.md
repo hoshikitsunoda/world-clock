@@ -1,6 +1,6 @@
 # world-clock
 A website for people who want to know times in different regions.
-# Useage
+# Usage
 ```bash
 $ mongodb
 $ npm install
