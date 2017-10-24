@@ -9,7 +9,7 @@ const times = zones =>
       .replace('_', ' '),
     time: moment()
       .tz(zone)
-      .format('h:mm:ss a')
+      .format('hh:mm:ss a')
   }))
 
 const render = zone => {
