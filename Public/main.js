@@ -34,7 +34,7 @@ const timeZones = () => {
     .then(res => res.json())
 }
 
-const doWerk = () => {
+const tick = () => {
   const getTime = timeZones()
   setInterval(() => {
     getTime
@@ -49,4 +49,4 @@ const doWerk = () => {
   }, 16)
 }
 
-doWerk()
+tick()
